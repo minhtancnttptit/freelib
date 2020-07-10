@@ -1,0 +1,153 @@
+import { Button, Dropdown, Input, Menu, message, Select } from 'antd';
+import React from 'react';
+import Router from 'next/router';
+// import ImageLogo from '../../assets/logo.png';
+// import ImageEbook from '../../assets/ebook.png';
+// import ImagePen from '../../assets/pen.png';
+const { SubMenu } = Menu;
+const InputGroup = Input.Group;
+const { Option } = Select;
+const { Search } = Input;
+
+class Header extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            current: 'mail',
+            // ebook: ImageEbook,
+            // logo: ImageLogo,
+            // pen: ImagePen,
+        };
+    }
+    handleClickLogin = () => {
+      Router.push('/login');
+    }
+    handleClickRegister = () => {
+      Router.push('/register');
+    }
+    onClick = ({ key }) => {
+        message.info(`Click on item ${key}`);
+    };
+
+    handleClick = e => {
+        Router.push('/');
+        this.setState({
+            current: e.key,
+        });
+    };
+    menu = (
+        <Menu onClick={this.onClick}>
+            <Menu.Item key="1">Tài liệu</Menu.Item>
+            <Menu.Item key="2">Ebook</Menu.Item>
+            <Menu.Item key="3">Đề thi</Menu.Item>
+        </Menu>
+    );
+    state = {
+        dataSource: [],
+    };
+
+    handleChange = value => {
+        this.setState({
+            dataSource:
+                !value || value.indexOf('@') >= 0
+                    ? []
+                    : [`${value}@gmail.com`, `${value}@163.com`, `${value}@qq.com`],
+        });
+    };
+
+    render() {
+        return (
+            <div>
+                <div id='menu'>
+                    <div className="wrap-menu">
+                        <Menu className="menu-header" onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
+                            <Menu.Item className="menu-logo">
+                                <div style={{ display: 'flex', alignItems: 'center' }}>
+                                    <div className="text">FreeLib</div>
+                                </div>
+                            </Menu.Item>
+                            <SubMenu className="hover-menu"
+                                title={
+                                    <span className="submenu-title-wrapper">
+                                        {/* <img src={this.state.pen} /> */}
+                                        <div className="text">Tài Liệu</div>
+                                    </span>
+                                }
+                            >
+                                <Menu.ItemGroup title="Năm 1">
+                                    <Menu.Item key="setting:1">Option 1</Menu.Item>
+                                    <Menu.Item key="setting:2">Option 2</Menu.Item>
+                                </Menu.ItemGroup>
+                                <Menu.ItemGroup title="Năm 2">
+                                    <Menu.Item key="setting:3">Option 3</Menu.Item>
+                                    <Menu.Item key="setting:4">Option 4</Menu.Item>
+                                </Menu.ItemGroup>
+                            </SubMenu>
+                            <SubMenu className="hover-menu"
+                                title={
+                                    <span className="submenu-title-wrapper">
+                                        <img src={this.state.ebook} />
+                                        <div className="text">Ebook</div>
+                                    </span>
+                                }
+                            >
+                                <Menu.ItemGroup title="Item 1">
+                                    <Menu.Item key="setting:1">Option 1</Menu.Item>
+                                    <Menu.Item key="setting:2">Option 2</Menu.Item>
+                                </Menu.ItemGroup>
+                                <Menu.ItemGroup title="Item 2">
+                                    <Menu.Item key="setting:3">Option 3</Menu.Item>
+                                    <Menu.Item key="setting:4">Option 4</Menu.Item>
+                                </Menu.ItemGroup>
+                            </SubMenu>
+                            <SubMenu className="hover-menu"
+                                title={
+                                    <span className="submenu-title-wrapper">
+                                        {/* <img src={this.state.ebook} /> */}
+                                        <div className="text">Đề thi</div>
+                                    </span>
+                                }
+                            >
+                                <Menu.ItemGroup title="Item 1">
+                                    <Menu.Item key="setting:1">Option 1</Menu.Item>
+                                    <Menu.Item key="setting:2">Option 2</Menu.Item>
+                                </Menu.ItemGroup>
+                                <Menu.ItemGroup title="Item 2">
+                                    <Menu.Item key="setting:3">Option 3</Menu.Item>
+                                    <Menu.Item key="setting:4">Option 4</Menu.Item>
+                                </Menu.ItemGroup>
+                            </SubMenu>
+                        </Menu>
+                        <div style={{ alignItems: 'center', margin: '0 10px', width: 400 }}>
+                            <InputGroup compact style={{ display: 'flex', fontFamily: "'Roboto', sans-serif" }}>
+                                <Select defaultValue="Option1">
+                                    <Option value="Option1">Tài liệu</Option>
+                                    <Option value="Option2">Ebook</Option>
+                                    <Option value="Option2">Đề thi</Option>
+                                </Select>
+                                <Search placeholder="input search text" onSearch={value => console.log(value)} enterButton />
+                            </InputGroup>
+                        </div>
+                        <div className="rs-login-upload">
+                            <Button type="normal" className="login" onClick={() => { this.handleClickLogin() }}>Đăng nhập</Button>
+                            <Button type="normal" className="register" onClick={() => { this.handleClickRegister() }}>Đăng ký</Button>
+                            <div className="upload">
+                                <Dropdown overlay={this.menu} >
+                                    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                                        UpLoad
+                            </a>
+                                </Dropdown>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    {/* {true ? <Login /> : ""}
+                    {true ? <Register /> : ''} */}
+                </div>
+            </div>
+        )
+    }
+
+}
+export default Header;

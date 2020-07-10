@@ -1,0 +1,130 @@
+.ant-menu-item{
+  align-items: center;
+}
+#menu{
+  padding: 0 calc((100% - 1200px)/2);
+  background: #E1E1E1;
+  display: flex;
+}
+.wrap-menu{
+  display: flex;
+  align-items:  center;
+  background: #E1E1E1;
+}
+.menu-header{
+  font-family: 'Roboto', sans-serif;
+  background: #E1E1E1;
+}
+.menu-logo{
+  font-size: 24px;
+}
+.ant-menu-horizontal > .ant-menu-item:hover, .ant-menu-horizontal > .ant-menu-submenu:hover, .ant-menu-horizontal > .ant-menu-item-active, .ant-menu-horizontal > .ant-menu-submenu-active, .ant-menu-horizontal > .ant-menu-item-open, .ant-menu-horizontal > .ant-menu-submenu-open, .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected {
+  border: none;
+}
+.text{
+  margin-left: 3px;
+}
+.menu-logo .text:hover{
+  border:none;
+  
+}
+.submenu-title-wrapper{
+  font-size: 20px;
+  align-items: center;
+  display: flex;
+}
+.ant-menu-horizontal > .ant-menu-submenu-selected {
+  color: red;
+  border-bottom: 2px solid #1890ff;
+}
+.ant-btn-primary {
+  color: rgb(208, 212, 219);
+  background-color:white;
+  border-color:rgb(208, 212, 219);
+}
+.rs-login-upload{
+  display: flex;
+  align-items: center;
+}
+.login, .register, .upload{
+  margin-right: 5px;
+  border: none;
+  background-color: #E1E1E1;
+  width: 110px;
+}
+.upload{
+  width: 70px;
+}
+.ant-btn{
+  border-radius: 0px;
+  font-size: 16px;
+}
+.login-form {
+  max-width: 300px;
+}
+.login-form-forgot {
+  float: right;
+}
+.login-form-button {
+  width: 100%;
+}
+.wrap-login{
+  padding:  0 15px;
+  width: 330px;
+  background-color: white;
+  margin: 0 auto;
+}
+.close-login{
+  display: flex;
+  position: relative
+}
+.button-close{
+  position: absolute;
+  top: 0px;
+  right: -15px;
+  outline: none;
+  border: none;
+}
+.ant-modal-footer{
+  display: none;
+}
+.ant-modal{
+  width: 380px;
+}
+.ant-modal-body{
+  margin: 0 auto;
+}
+.ant-modal-close {
+  top: -7px;
+  right: -7px;
+}
+.ant-modal-content{
+  width: 500px;
+  margin: 0 auto;
+}
+.text-dangki{
+  position: relative;
+  left:25px;
+  top:0;
+}
+.register-form{
+  max-width: 400px;
+}
+.content{
+  padding: 0 10%;
+}
+
+.normal {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: normal;
+  letter-spacing: -1px;
+  background: darkslateblue;
+  padding: .6em 0;
+  color: white;
+  margin: 0;
+}

@@ -1,0 +1,43 @@
+.ant_carousel .slick_slide {
+    text-align: center;
+    height: 330px;
+    overflow: hidden;
+    background-color: #F3F7F9;
+}
+
+.ant_carousel .slick_dots li.slick_active button{
+    background: yellow;
+}
+
+.ant_carousel .slick_slide h3 {
+    color:aqua;
+}
+.wrap_col_ebookcon{
+    width: 200px;
+    height: 300px;
+    border: 1px solid antiquewhite;
+    align-items: center;
+    display: flex;
+    margin: 0 15px;
+}
+.img_ebookcon{
+    width: 100px;
+    height: 100px;
+}
+.wrap_icon_countClick{
+    display: flex;
+    align-Items: center;
+    position: absolute;
+    left: 5px;
+}
+.text_ebook{
+    margin-top: 3px;
+    position: relative;
+    bottom: 0px;
+    left: -56px;
+}
+.col_ebookcon{
+    position: relative;
+    align-items: center;
+    margin: 0 auto;
+}
