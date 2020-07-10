@@ -84,18 +84,20 @@ class NewEBook extends React.Component {
                       <EBook key={ebook.name} textEbook={ebook.name} srcImageEbook={ebook.image} countClick={ebook.countClick} />
                     ))} */}
                     {
-                      <div>
-                        <>
-                          element[0]
-                          element[1]
-                        </>
-                      </div>
-                      <div>
-                        <>
-                          element[2],
-                          element[3]
-                        ]}
-                      </div>
+                      <>
+                        <div>
+                          <>
+                            element[0]
+                            element[1]
+                          </>
+                        </div>
+                        <div>
+                          <>
+                            element[2],
+                            element[3]
+                          </>
+                        </div>
+                      </>
                     }
                 </Carousel>
                 <RightCircleOutlined onClick={this.next} />
