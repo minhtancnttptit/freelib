@@ -24,7 +24,7 @@ const Upload = () => {
     };
     try {
       const { data, status } = await Axios.post(
-        "https:freelib-api.herokuapp.com/api/upload",
+        "https://freelib-api.herokuapp.com/api/upload",
         content
       );
       if (status === 200) {

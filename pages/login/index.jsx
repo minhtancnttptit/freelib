@@ -28,7 +28,7 @@ const Login = observer(() => {
         password: values.password.trim(),
       };
       const res = await Axios.post(
-        "https:freelib-api.herokuapp.com/api/login",
+        "https://freelib-api.herokuapp.com/api/login",
         content
       );
       const { data, status } = res;
