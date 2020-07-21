@@ -27,7 +27,10 @@ const Login = observer(() => {
         username: values.username.trim(),
         password: values.password.trim(),
       };
-      const res = await Axios.post("http://localhost:8080/api/login", content);
+      const res = await Axios.post(
+        "https://freelib-api.herokuapp.com/api/login",
+        content
+      );
       const { data, status } = res;
       if (status === 200) {
         setAuthen(true);
