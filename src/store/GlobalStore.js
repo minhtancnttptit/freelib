@@ -1,6 +1,5 @@
 import Axios from "axios";
 import { ObjectID } from "bson";
-import Axios from "axios";
 import Router from "next/router";
 
 const { observable, action } = require("mobx");
