@@ -8,7 +8,10 @@ class EBook extends React.Component {
     return (
       <div onClick={handleClick} className={styles.wrap_col_ebookcon}>
         <div className={styles.col_ebookcon}>
-          <img src={srcImageEbook} />
+          <img
+            src={srcImageEbook}
+            style={{ width: "170px", height: "220px" }}
+          />
           <div className={styles.text_ebook}>{textEbook}</div>
           <div className={styles.wrap_icon_countClick}>
             <EyeOutlined />

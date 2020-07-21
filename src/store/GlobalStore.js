@@ -26,7 +26,7 @@ class GlobalStore {
   getNewEbooks = async () => {
     try {
       const { data, status } = await Axios.get(
-        "https:freelib-api.herokuapp.com/api/newEbooks"
+        "http://localhost:8080/api/newEbooks"
       );
       if (status === 200) {
         this.newEbooks = data;
