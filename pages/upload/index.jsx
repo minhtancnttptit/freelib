@@ -1,40 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Input, Form, Select, Button } from "antd";
-import { ObjectID } from "bson";
-import Axios from "axios";
-import Router from "next/router";
+import { MobXProviderContext } from "mobx-react";
 
 const { Option } = Select;
 const { Item } = Form;
 
 const Upload = () => {
-  const handleUpdate = async (values) => {
-    console.log(values);
-    const { type, title, cover, category, description, link } = values;
-    const tmp = new ObjectID();
-    const id = tmp.toHexString();
-    const content = {
-      id,
-      type,
-      title,
-      cover,
-      category,
-      description,
-      link,
-    };
-    try {
-      const { data, status } = await Axios.post(
-        "https://freelib-api.herokuapp.com/api/upload",
-        content
-      );
-      if (status === 200) {
-        console.log(data);
-        Router.push("/");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const { globalStore } = useContext(MobXProviderContext);
+  const { uploadResource } = globalStore;
 
   return (
     <div style={{ width: "800px", margin: "0 auto", marginTop: "30px" }}>
@@ -46,7 +19,7 @@ const Upload = () => {
           span: 14,
         }}
         layout="horizontal"
-        onFinish={handleUpdate}
+        onFinish={uploadResource}
       >
         <Item label="Loại tài nguyên" name="type">
           <Select>

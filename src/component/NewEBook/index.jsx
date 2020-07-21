@@ -1,11 +1,11 @@
 import React from "react";
 import { Carousel } from "antd";
-import _ from "lodash";
+import _, { random } from "lodash";
 import { LeftCircleOutlined, RightCircleOutlined } from "@ant-design/icons";
-import EBook from "../EBook";
 import { observer, MobXProviderContext } from "mobx-react";
 import { toJS } from "mobx";
 
+import EBook from "../EBook";
 @observer
 class NewEBook extends React.Component {
   state = {};
@@ -86,15 +86,15 @@ class NewEBook extends React.Component {
         status: true,
       },
     ];
-    const chunks = _.chunk(arr, 4);
+    const chunks = _.chunk(newEbooks, 4);
     const tmp = chunks.map((item) => {
       return (
         <div style={{ display: "flex", justifyContent: "center" }}>
-          {item.map(({ name, image, countClick }) => (
+          {item.map(({ title, cover }) => (
             <EBook
-              textEbook={name}
-              srcImageEbook={image}
-              countClick={countClick}
+              textEbook={title}
+              srcImageEbook={cover}
+              countClick={Math.round(Math.random() * 100)}
             />
           ))}
         </div>

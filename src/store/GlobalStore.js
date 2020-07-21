@@ -1,4 +1,7 @@
 import Axios from "axios";
+import { ObjectID } from "bson";
+import Axios from "axios";
+import Router from "next/router";
 
 const { observable, action } = require("mobx");
 
@@ -31,6 +34,34 @@ class GlobalStore {
       if (status === 200) {
         this.newEbooks = data;
         console.log(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  @action
+  uploadResource = async (values) => {
+    const tmp = new ObjectID();
+    const id = tmp.toHexString();
+    const { type, title, cover, category, description, link } = values;
+    const content = {
+      id,
+      type,
+      title,
+      cover,
+      category,
+      description,
+      link,
+    };
+    try {
+      const { data, status } = await Axios.post(
+        "https://freelib-api.herokuapp.com/api/upload",
+        content
+      );
+      if (status === 200) {
+        this.newEbooks.push(data);
+        Router.push("/");
       }
     } catch (error) {
       console.log(error);
