@@ -46,7 +46,7 @@
   display: flex;
   align-items: center;
 }
-.login, .register, .upload{
+.logout, .login, .register, .upload{
   margin-right: 5px;
   border: none;
   background-color: #E1E1E1;
