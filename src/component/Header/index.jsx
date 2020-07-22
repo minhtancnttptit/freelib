@@ -83,7 +83,9 @@ class Header extends React.Component {
             >
               <Menu.Item className="menu-logo">
                 <div style={{ display: "flex", alignItems: "center" }}>
-                  <div className="text">FreeLib</div>
+                  <div className="text" onClick={() => Router.push("/")}>
+                    FreeLib
+                  </div>
                 </div>
               </Menu.Item>
               <SubMenu
