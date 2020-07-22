@@ -74,9 +74,6 @@ class NewEBook extends React.Component {
           ))}
         </Carousel>
         <RightCircleOutlined onClick={this.next} />
-        <Link href="/login">
-          <a>Test</a>
-        </Link>
       </div>
     );
   }

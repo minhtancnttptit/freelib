@@ -23,6 +23,7 @@ const Login = observer(() => {
 
   const onSubmit = async (values) => {
     try {
+      console.log(values);
       const content = {
         username: values.username.trim(),
         password: values.password.trim(),

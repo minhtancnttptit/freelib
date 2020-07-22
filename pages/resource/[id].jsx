@@ -3,7 +3,6 @@ import { Row, Col, Button, Comment, Tooltip, List } from "antd";
 import moment from "moment";
 import { Avatar, Form, Input } from "antd";
 import { observer, MobXProviderContext } from "mobx-react";
-import Router from "next/router";
 
 const { TextArea } = Input;
 
@@ -74,6 +73,10 @@ const data = [
 
 @observer
 class XemTaiLieu extends React.Component {
+  static getInitialProps(props) {
+    return props;
+  }
+
   state = {
     comments: [],
     submitting: false,
@@ -116,9 +119,10 @@ class XemTaiLieu extends React.Component {
   };
   render() {
     const { comments, submitting, value } = this.state;
+    console.log(this.props);
     const {
       query: { id },
-    } = Router;
+    } = this.props;
     const { globalStore } = this.context;
     const { newEbooks } = globalStore;
     const ebook = newEbooks.find((item) => item.id === id);
