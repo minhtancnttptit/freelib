@@ -67,6 +67,10 @@ class Header extends React.Component {
     });
   };
 
+  handleSearch = (value) => {
+    Router.push(`/searchResult?value=${value}`);
+  };
+
   render() {
     const store = this.context;
     const { globalStore } = store;
@@ -92,7 +96,6 @@ class Header extends React.Component {
                 className="hover-menu"
                 title={
                   <span className="submenu-title-wrapper">
-                    {/* <img src={this.state.pen} /> */}
                     <div className="text">Tài Liệu</div>
                   </span>
                 }
@@ -128,7 +131,6 @@ class Header extends React.Component {
                 className="hover-menu"
                 title={
                   <span className="submenu-title-wrapper">
-                    {/* <img src={this.state.ebook} /> */}
                     <div className="text">Đề thi</div>
                   </span>
                 }
@@ -148,14 +150,14 @@ class Header extends React.Component {
                 compact
                 style={{ display: "flex", fontFamily: "'Roboto', sans-serif" }}
               >
-                <Select defaultValue="Option1">
+                <Select defaultValue="Option2">
                   <Option value="Option1">Tài liệu</Option>
                   <Option value="Option2">Ebook</Option>
                   <Option value="Option2">Đề thi</Option>
                 </Select>
                 <Search
                   placeholder="input search text"
-                  onSearch={(value) => console.log(value)}
+                  onSearch={(value) => this.handleSearch(value)}
                   enterButton
                 />
               </InputGroup>

@@ -4,9 +4,9 @@ import styles from "./styles.module.css";
 
 class EBook extends React.Component {
   render() {
-    const { handleClick, srcImageEbook, textEbook, countClick } = this.props;
+    const { srcImageEbook, textEbook, countClick } = this.props;
     return (
-      <div onClick={handleClick} className={styles.wrap_col_ebookcon}>
+      <div className={styles.wrap_col_ebookcon}>
         <div className={styles.col_ebookcon}>
           <img
             src={srcImageEbook}

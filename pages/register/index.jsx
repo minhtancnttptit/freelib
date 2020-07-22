@@ -25,7 +25,6 @@ const FormSizeDemo = () => {
   };
 
   const handleRegister = async (values) => {
-    console.log(values);
     const tmp = new ObjectID();
     const dateTimeFormat = new Intl.DateTimeFormat("id");
     const id = tmp.toHexString();
