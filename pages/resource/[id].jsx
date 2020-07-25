@@ -122,7 +122,7 @@ class XemTaiLieu extends React.Component {
             </span>,
           ],
           author: name,
-          avatar: gender === "male" ? "/male.jpeg" : "/female",
+          avatar: gender === "male" ? "/male.jpeg" : "/female.jpeg",
           content: <p className="content-binhluan">{content}</p>,
           datetime: (
             <Tooltip
