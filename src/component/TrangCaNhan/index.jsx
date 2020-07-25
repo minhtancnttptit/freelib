@@ -27,7 +27,6 @@ class TrangCaNhan extends React.Component {
     const { globalStore } = this.context;
     const { users, newEbooks } = globalStore;
     const user = users.find((item) => item.id === idUser);
-    console.log(toJS(users));
     if (!user) {
       return <></>;
     }
@@ -123,7 +122,7 @@ class TrangCaNhan extends React.Component {
                       marginBottom: 15,
                     }}
                   >
-                    <div style={{ width: 250 }}>Thể loại yêu thích:</div>
+                    <div style={{ width: 250 }}>Giới tính:</div>
                     <Input
                       placeholder="Giới tính"
                       className="input-chuathongtin"
