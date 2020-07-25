@@ -75,6 +75,8 @@ class GlobalStore {
       link,
       idpublisher: this.account.id,
     };
+
+    console.log(this.account.id);
     try {
       const { data, status } = await Axios.post(
         "https://freelib-api.herokuapp.com/api/upload",
