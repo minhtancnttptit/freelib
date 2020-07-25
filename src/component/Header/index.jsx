@@ -150,10 +150,10 @@ class Header extends React.Component {
                 compact
                 style={{ display: "flex", fontFamily: "'Roboto', sans-serif" }}
               >
-                <Select defaultValue="Option2">
+                {/* <Select defaultValue="Option2">
                   <Option value="Option1">Tài liệu</Option>
                   <Option value="Option2">Sách</Option>
-                </Select>
+                </Select> */}
                 <Search
                   placeholder="Nhập tên tài liệu cần tìm"
                   onSearch={(value) => this.handleSearch(value)}
