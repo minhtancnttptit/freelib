@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col, Button, Comment, Tooltip, List } from "antd";
+import Link from "next/link";
 import moment from "moment";
 import { Avatar, Form, Input, icon } from "antd";
 import { observer, MobXProviderContext } from "mobx-react";
@@ -261,78 +262,27 @@ class XemTaiLieu extends React.Component {
                   Tài liệu cùng thể loại
                 </div>
                 <div className={style.tai_lieu_lien_quan}>
-                  <a
-                    style={{
-                      margin: 100,
-                      textAlign: "left",
-                      color: "#474747",
-                      fontSize: 14,
-                      fontWeight: 600,
-                    }}
-                  >
-                    <div>
-                      <img src="/ebook.png" style={{ marginRight: 5 }} />
-                      Lippincott Illustrated Review-Pharmacology 7th Edition
-                      (2018)
-                    </div>
-                  </a>
-                  <a
-                    style={{
-                      margin: 100,
-                      textAlign: "left",
-                      color: "#474747",
-                      fontSize: 14,
-                      fontWeight: 600,
-                    }}
-                    className="test"
-                  >
-                    <div>
-                      <img src="/ebook.png" style={{ marginRight: 5 }} />
-                      Lippincott Illustrated Reviews Flash Cards Biochemistry
-                    </div>
-                  </a>
-                  <a
-                    style={{
-                      margin: 100,
-                      textAlign: "left",
-                      color: "#474747",
-                      fontSize: 14,
-                      fontWeight: 600,
-                    }}
-                  >
-                    <div>
-                      <img src="/ebook.png" style={{ marginRight: 5 }} />
-                      Lippincott Illustrated Reviews: Pharmacology 6th Edition
-                    </div>
-                  </a>
-                  <a
-                    style={{
-                      margin: 100,
-                      textAlign: "left",
-                      color: "#474747",
-                      fontSize: 14,
-                      fontWeight: 600,
-                    }}
-                  >
-                    <div>
-                      <img src="/ebook.png" style={{ marginRight: 5 }} />
-                      Lippincott's Illustrated Reviews Physiology (2012)
-                    </div>
-                  </a>
-                  <a
-                    style={{
-                      margin: 100,
-                      textAlign: "left",
-                      color: "#474747",
-                      fontSize: 14,
-                      fontWeight: 600,
-                    }}
-                  >
-                    <div>
-                      <img src="/ebook.png" style={{ marginRight: 5 }} />
-                      Review of Pathology and Genetics 7th Edition
-                    </div>
-                  </a>
+                  {newEbooks
+                    .map((ebook) => ebook.category === category)
+                    .splice(0, 5)
+                    .map((item) => (
+                      <Link href="/resource/[id]" as={`/resource/${item.id}`}>
+                        <a
+                          style={{
+                            margin: 100,
+                            textAlign: "left",
+                            color: "#474747",
+                            fontSize: 14,
+                            fontWeight: 600,
+                          }}
+                        >
+                          <div>
+                            <img src="/ebook.png" style={{ marginRight: 5 }} />
+                            <label>{item.title}</label>
+                          </div>
+                        </a>
+                      </Link>
+                    ))}
                 </div>
               </div>
             </Col>
