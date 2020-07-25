@@ -41,7 +41,10 @@ const FormSizeDemo = () => {
       address,
     };
     try {
-      await Axios.post("http://localhost:8080/api/register", content);
+      await Axios.post(
+        "https://freelib-api.herokuapp.com/api/register",
+        content
+      );
       Router.push("/login");
     } catch (error) {
       console.log(error);

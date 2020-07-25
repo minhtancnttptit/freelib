@@ -34,7 +34,7 @@ class GlobalStore {
   getNewEbooks = async () => {
     try {
       const { data, status } = await Axios.get(
-        "http://localhost:8080/api/newEbooks"
+        "https://freelib-api.herokuapp.com/api/newEbooks"
       );
       if (status === 200) {
         this.newEbooks = data;
@@ -49,7 +49,7 @@ class GlobalStore {
   getUsers = async () => {
     try {
       const { data, status } = await Axios.get(
-        "http://localhost:8080/api/user"
+        "https://freelib-api.herokuapp.com/api/user"
       );
       if (status === 200) {
         this.users = data;
@@ -76,7 +76,7 @@ class GlobalStore {
     };
     try {
       const { data, status } = await Axios.post(
-        "http://localhost:8080/api/upload",
+        "https://freelib-api.herokuapp.com/api/upload",
         content
       );
       if (status === 200) {
@@ -93,7 +93,7 @@ class GlobalStore {
     console.log("get Comments");
     try {
       const { data, status } = await Axios.get(
-        `http://localhost:8080/api/commment?idResource=${id}`
+        `https://freelib-api.herokuapp.com/api/commment?idResource=${id}`
       );
       if (status === 200) {
         this.comments = data;
@@ -108,7 +108,7 @@ class GlobalStore {
   addComment = async (commnent) => {
     try {
       const { status, data } = await Axios.post(
-        "http://localhost:8080/api/comment",
+        "https://freelib-api.herokuapp.com/api/comment",
         commnent
       );
       if (status === 200) {
