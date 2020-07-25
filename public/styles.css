@@ -390,3 +390,60 @@
   background: #ffffff;
   margin-top: 20px;
 }
+.wrap-banbe {
+  text-align: left;
+  padding: 30px 45px;
+  font-weight: 800;
+  font-family: "Roboto", Tahoma, Arial, helvetica, sans-serif;
+  font-style: italic;
+  color: #838383;
+  font-size: 15px;
+  /* margin-top: 60px; */
+}
+.img-banbe {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.tenbanbe {
+  border: 2px solid #e9ebee;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  margin-bottom: 15px;
+  padding-left: 30px;
+  border-radius: 7px;
+}
+.input-chuathongtin {
+}
+.wrap-thongtin {
+  text-align: left;
+  padding: 30px 45px;
+  font-weight: 800;
+  font-family: "Roboto", Tahoma, Arial, helvetica, sans-serif;
+  font-style: italic;
+  color: #838383;
+  font-size: 15px;
+  /* margin-top: 60px; */
+}
+.img-thongtin {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.trangcanhan {
+  border: 2px solid #e9ebee;
+  padding-bottom: 30px;
+  padding-top: 25px;
+  margin-bottom: 15px;
+  padding-left: 30px;
+  border-radius: 7px;
+}
+.ebook-trangcanhan {
+  border: 2px solid #e9ebee;
+  padding-bottom: 30px;
+  padding-top: 25px;
+  margin-bottom: 15px;
+  padding-left: 30px;
+  border-radius: 7px;
+  margin-top: 60px;
+}
