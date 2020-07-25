@@ -145,7 +145,7 @@ class Header extends React.Component {
                 </Menu.ItemGroup>
               </SubMenu>
             </Menu>
-            <div style={{ alignItems: "center", margin: "0 10px", width: 400 }}>
+            <div style={{ alignItems: "center", margin: "0 10px", width: 480 }}>
               <InputGroup
                 compact
                 style={{ display: "flex", fontFamily: "'Roboto', sans-serif" }}
@@ -211,6 +211,7 @@ class Header extends React.Component {
                       </a>
                     </Dropdown> */}
                   </div>
+                  <Link href="/editProfile">Chỉnh sửa thông tin cá nhân</Link>
                 </>
               )}
             </div>

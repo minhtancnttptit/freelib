@@ -189,6 +189,7 @@
   border-color: rgb(208, 212, 219);
 }
 .rs-login-upload {
+  width: 600px;
   display: flex;
   align-items: center;
 }
