@@ -17,7 +17,6 @@ class Result extends React.Component {
     const arr = newEbooks.filter((item) =>
       item.title.toLowerCase().includes(value.toLowerCase())
     );
-    console.log(arr);
     return (
       <div>
         <h1>Kết quả tìm kiếm</h1>

@@ -1,8 +1,12 @@
 import React from "react";
 import { Row, Col, Button, Comment, Tooltip, List } from "antd";
 import moment from "moment";
-import { Avatar, Form, Input } from "antd";
+import { Avatar, Form, Input, icon } from "antd";
 import { observer, MobXProviderContext } from "mobx-react";
+import style from "./tailieu.module.css";
+import { WarningOutlined } from "@ant-design/icons";
+import Axios from "axios";
+import { ObjectID } from "bson";
 
 const { TextArea } = Input;
 
@@ -32,44 +36,6 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
     </Form.Item>
   </div>
 );
-const data = [
-  {
-    actions: [
-      <span key="comment-list-reply-to-0" style={{ color: "#385898" }}>
-        Trả lời
-      </span>,
-    ],
-    author: "Dung Dug",
-    avatar:
-      "https://scontent.fhan2-2.fna.fbcdn.net/v/t1.0-9/67637042_651333615385628_3631152518123225088_n.jpg?_nc_cat=106&_nc_sid=85a577&_nc_ohc=6HaIkoEOGeIAX-z4Rxt&_nc_ht=scontent.fhan2-2.fna&oh=0d1041861896f286cb63cbd47824ee1b&oe=5F3E22EE",
-    content: <p className="content-binhluan">Tài liệu rất bổ ích</p>,
-    datetime: (
-      <Tooltip
-        title={moment().subtract(1, "days").format("YYYY-MM-DD HH:mm:ss")}
-      >
-        <span>{moment().subtract(1, "days").fromNow()}</span>
-      </Tooltip>
-    ),
-  },
-  {
-    actions: [
-      <span key="comment-list-reply-to-0" style={{ color: "#385898" }}>
-        Trả lời
-      </span>,
-    ],
-    author: "TuanAnh",
-    avatar:
-      "https://scontent.fhan2-4.fna.fbcdn.net/v/t1.0-9/74802500_2459327151053474_8611981286195593216_n.jpg?_nc_cat=110&_nc_sid=85a577&_nc_ohc=cuwsaL9IMpAAX-RBx6D&_nc_ht=scontent.fhan2-4.fna&oh=e47b950317d6a02ab712e6b1c4fbf8e7&oe=5F3D3D61",
-    content: <p className="content-binhluan">Quá tuyệt vời</p>,
-    datetime: (
-      <Tooltip
-        title={moment().subtract(2, "days").format("YYYY-MM-DD HH:mm:ss")}
-      >
-        <span>{moment().subtract(2, "days").fromNow()}</span>
-      </Tooltip>
-    ),
-  },
-];
 
 @observer
 class XemTaiLieu extends React.Component {
@@ -78,37 +44,39 @@ class XemTaiLieu extends React.Component {
   }
 
   state = {
-    comments: [],
-    submitting: false,
     value: "",
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    const { globalStore } = this.context;
+    const { comments, getComments, get } = globalStore;
+    const {
+      query: { id },
+    } = this.props;
+    getComments(id);
+  }
 
   handleSubmit = () => {
     if (!this.state.value) {
       return;
     }
 
-    this.setState({
-      submitting: true,
-    });
+    const { globalStore } = this.context;
+    const { addComment, account } = globalStore;
+    const { id: idUser } = account;
+
+    const {
+      query: { id },
+    } = this.props;
 
     setTimeout(() => {
-      this.setState({
-        submitting: false,
-        value: "",
-        comments: [
-          {
-            author: "Han Solo",
-            avatar:
-              "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
-            content: <p>{this.state.value}</p>,
-            datetime: moment().fromNow(),
-          },
-          ...this.state.comments,
-        ],
+      addComment({
+        id: new ObjectID().toHexString(),
+        iduser: idUser,
+        idresource: id,
+        content: this.state.value,
       });
+      this.setState({ value: "" });
     }, 1000);
   };
 
@@ -118,49 +86,87 @@ class XemTaiLieu extends React.Component {
     });
   };
   render() {
-    const { comments, submitting, value } = this.state;
-    console.log(this.props);
+    const { submitting, value } = this.state;
     const {
       query: { id },
     } = this.props;
     const { globalStore } = this.context;
-    const { newEbooks } = globalStore;
+    const { isAuthen, newEbooks, users, comments } = globalStore;
+    if (newEbooks.length < 1) {
+      return <></>;
+    }
     const ebook = newEbooks.find((item) => item.id === id);
 
-    const { title, cover, category, link, description } = ebook;
+    const { title, cover, category, link, description, idpublisher } = ebook;
     const lines = description.split("\n");
 
+    const publisher = users.find((user) => user.id === idpublisher);
+    const { name } = publisher;
+
+    let listComment = [];
+
+    if (comments.length < 1) {
+      listComment = [];
+    } else {
+      listComment = comments.map((comment) => {
+        const { id, iduser, content } = comment;
+        const user = users.find((item) => item.id === iduser);
+        if (!user) {
+          return {};
+        }
+        const { name, gender } = user;
+        return {
+          actions: [
+            <span key="comment-list-reply-to-0" style={{ color: "#385898" }}>
+              Trả lời
+            </span>,
+          ],
+          author: name,
+          avatar: gender === "male" ? "/male.jpeg" : "/female",
+          content: <p className="content-binhluan">{content}</p>,
+          datetime: (
+            <Tooltip
+              title={moment().subtract(1, "days").format("YYYY-MM-DD HH:mm:ss")}
+            >
+              <span>{moment().subtract(1, "days").fromNow()}</span>
+            </Tooltip>
+          ),
+        };
+      });
+    }
+
     return (
-      <div className="content">
-        <div style={{ marginTop: 60 }}>
-          <Row>
-            <div style={{ display: "flex", position: "relative" }}>
-              <div
-                style={{
-                  right: -400,
-                  top: 15,
-                  width: 600,
-                }}
+      <div className={style.content}>
+        <div style={{ marginTop: 80 }}>
+          <div style={{ display: "flex", position: "relative" }}>
+            <div
+              style={{
+                right: -900,
+                top: -15,
+                width: 600,
+                position: "relative",
+              }}
+            >
+              <Button
+                type="danger"
+                shape="round"
+                icon={<WarningOutlined />}
+                size={"large"}
               >
-                <Button
-                  type="danger"
-                  shape="round"
-                  icon="warning"
-                  size={"large"}
-                >
-                  Báo cáo tài liệu
-                </Button>
-              </div>
+                Báo cáo tài liệu
+              </Button>
             </div>
+          </div>
+          <Row>
             <Col span={6}>
-              <div className="image-xemtailieu">
+              <div style={{ marginLeft: 120 }}>
                 <img src={cover} style={{ width: "216px", height: 280 }} />
               </div>
             </Col>
             <Col span={12}>
               <div>
-                <div className="ten-tailieu">{title}</div>
-                <div className="wrap-tg-nph-theloai">
+                <div className={style.ten_tailieu}>{title}</div>
+                <div className={style.wrap_tg_nph_theloai}>
                   <div style={{ display: "flex" }}>
                     Người đăng:{" "}
                     <div
@@ -170,7 +176,7 @@ class XemTaiLieu extends React.Component {
                         fontWeight: 700,
                       }}
                     >
-                      Newptit
+                      {name}
                     </div>
                   </div>
                   <div style={{ display: "flex" }}>
@@ -186,7 +192,7 @@ class XemTaiLieu extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div className="mota">
+                <div className={style.mota}>
                   {lines.map((line) => (
                     <div>{line}</div>
                   ))}
@@ -207,9 +213,9 @@ class XemTaiLieu extends React.Component {
                 ----------------------------------------------------------------------------------------------------------------
                 <List
                   className="comment-list"
-                  header={`${data.length} lượt bình luận`}
+                  header={`${listComment.length} lượt bình luận`}
                   itemLayout="horizontal"
-                  dataSource={data}
+                  dataSource={listComment}
                   renderItem={(item) => (
                     <li>
                       <Comment
@@ -223,18 +229,22 @@ class XemTaiLieu extends React.Component {
                   )}
                 />
                 <div>
-                  {comments.length > 0 && <CommentList comments={comments} />}
-                  <Comment
-                    avatar={<Avatar src="./ebook.png" alt="Han Solo" />}
-                    content={
-                      <Editor
-                        onChange={this.handleChange}
-                        onSubmit={this.handleSubmit}
-                        submitting={submitting}
-                        value={value}
-                      />
-                    }
-                  />
+                  {/* {comments.length > 0 && <CommentList comments={comments} />} */}
+                  {isAuthen ? (
+                    <Comment
+                      avatar={<Avatar src="./ebook.png" alt="Han Solo" />}
+                      content={
+                        <Editor
+                          onChange={this.handleChange}
+                          onSubmit={this.handleSubmit}
+                          submitting={submitting}
+                          value={value}
+                        />
+                      }
+                    />
+                  ) : (
+                    <h2>Vui lòng đăng nhập để bình luận</h2>
+                  )}
                 </div>
               </div>
             </Col>
@@ -242,11 +252,11 @@ class XemTaiLieu extends React.Component {
               <div>
                 <div
                   style={{ paddingTop: 60, textAlign: "center" }}
-                  className="tailieu-lienquan"
+                  className={style.tailieu_lienquan}
                 >
                   Tài liệu cùng thể loại
                 </div>
-                <div className="tai-lieu-lien-quan">
+                <div className={style.tai_lieu_lien_quan}>
                   <a
                     style={{
                       margin: 100,

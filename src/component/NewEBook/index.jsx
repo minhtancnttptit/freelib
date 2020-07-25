@@ -18,7 +18,6 @@ class NewEBook extends React.Component {
 
   async componentDidMount() {
     const { globalStore } = this.context;
-    console.log(globalStore);
     const { newEbooks, getNewEbooks } = globalStore;
     if (newEbooks.length < 1) {
       await getNewEbooks();
@@ -42,7 +41,6 @@ class NewEBook extends React.Component {
   render() {
     const { globalStore } = this.context;
     const { newEbooks } = globalStore;
-    console.log(toJS(newEbooks));
     if (!newEbooks.length) {
       return <></>;
     }

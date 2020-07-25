@@ -14,6 +14,12 @@ class GlobalStore {
   @observable
   newEbooks = [];
 
+  @observable
+  users = [];
+
+  @observable
+  comments = [];
+
   @action
   setAuthen = (value) => {
     this.isAuthen = value;
@@ -28,10 +34,25 @@ class GlobalStore {
   getNewEbooks = async () => {
     try {
       const { data, status } = await Axios.get(
-        "https://freelib-api.herokuapp.com/api/newEbooks"
+        "http://localhost:8080/api/newEbooks"
       );
       if (status === 200) {
         this.newEbooks = data;
+        console.log(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  @action
+  getUsers = async () => {
+    try {
+      const { data, status } = await Axios.get(
+        "http://localhost:8080/api/user"
+      );
+      if (status === 200) {
+        this.users = data;
         console.log(data);
       }
     } catch (error) {
@@ -55,12 +76,44 @@ class GlobalStore {
     };
     try {
       const { data, status } = await Axios.post(
-        "https://freelib-api.herokuapp.com/api/upload",
+        "http://localhost:8080/api/upload",
         content
       );
       if (status === 200) {
         this.newEbooks.push(data);
         Router.push("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  @action
+  getComments = async (id) => {
+    console.log("get Comments");
+    try {
+      const { data, status } = await Axios.get(
+        `http://localhost:8080/api/commment?idResource=${id}`
+      );
+      if (status === 200) {
+        this.comments = data;
+        console.log(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  @action
+  addComment = async (commnent) => {
+    try {
+      const { status, data } = await Axios.post(
+        "http://localhost:8080/api/comment",
+        commnent
+      );
+      if (status === 200) {
+        this.comments.push(data);
+        console.log(data);
       }
     } catch (error) {
       console.log(error);

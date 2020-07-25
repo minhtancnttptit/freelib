@@ -7,9 +7,18 @@ import { MobXProviderContext } from "mobx-react";
 class Home extends React.Component {
   componentDidMount() {
     const { globalStore } = this.context;
-    const { newEbooks, getNewEbooks } = globalStore;
+    const {
+      newEbooks,
+      getNewEbooks,
+      users,
+      getUsers,
+      getComments,
+    } = globalStore;
     if (newEbooks.lenth < 1) {
       getNewEbooks();
+    }
+    if (users.length < 1) {
+      getUsers();
     }
   }
 
