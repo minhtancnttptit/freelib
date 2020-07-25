@@ -198,18 +198,22 @@ class XemTaiLieu extends React.Component {
                   ))}
                 </div>
                 ----------------------------------------------------------------------------------------------------------------
-                <div style={{ paddingTop: 5 }}>
-                  <strong>Download:</strong> PDF{" "}
-                  <div>
-                    <a
-                      href={link}
-                      className="btn btn-success btn-sm"
-                      target="_blank"
-                    >
-                      <i className="fa fa-download"></i> Download{" "}
-                    </a>
+                {isAuthen ? (
+                  <div style={{ paddingTop: 5 }}>
+                    <strong>Download:</strong> PDF{" "}
+                    <div>
+                      <a
+                        href={link}
+                        className="btn btn-success btn-sm"
+                        target="_blank"
+                      >
+                        <i className="fa fa-download"></i> Download{" "}
+                      </a>
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <h2>Vui lòng đăng nhập để tải.</h2>
+                )}
                 ----------------------------------------------------------------------------------------------------------------
                 <List
                   className="comment-list"

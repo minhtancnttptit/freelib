@@ -20,19 +20,23 @@ class Result extends React.Component {
     return (
       <div>
         <h1>Kết quả tìm kiếm</h1>
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          {arr.map(({ id, title, cover }) => (
-            <Link href="/resource/[id]" as={`/resource/${id}`}>
-              <a>
-                <EBook
-                  textEbook={title}
-                  srcImageEbook={cover}
-                  countClick={Math.round(Math.random() * 100)}
-                />
-              </a>
-            </Link>
-          ))}
-        </div>
+        {arr.length > 0 ? (
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            {arr.map(({ id, title, cover }) => (
+              <Link href="/resource/[id]" as={`/resource/${id}`}>
+                <a>
+                  <EBook
+                    textEbook={title}
+                    srcImageEbook={cover}
+                    countClick={Math.round(Math.random() * 100)}
+                  />
+                </a>
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <h2>Không tìm thấy tài liệu phù hợp</h2>
+        )}
       </div>
     );
   }

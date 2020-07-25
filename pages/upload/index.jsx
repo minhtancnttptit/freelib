@@ -7,7 +7,11 @@ const { Item } = Form;
 
 const Upload = () => {
   const { globalStore } = useContext(MobXProviderContext);
-  const { uploadResource } = globalStore;
+  const { isAuthen, uploadResource } = globalStore;
+
+  if (!isAuthen) {
+    return <h1>Vui lòng đăng nhập để upload!</h1>;
+  }
 
   return (
     <div style={{ width: "800px", margin: "0 auto", marginTop: "30px" }}>
