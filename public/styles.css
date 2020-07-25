@@ -447,3 +447,7 @@
   border-radius: 7px;
   margin-top: 60px;
 }
+.ant-comment-content-author-name {
+  color: rgb(0, 127, 123);
+  font-weight: 600;
+}
