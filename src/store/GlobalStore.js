@@ -38,7 +38,6 @@ class GlobalStore {
       );
       if (status === 200) {
         this.newEbooks = data;
-        console.log(data);
       }
     } catch (error) {
       console.log(error);
@@ -53,7 +52,6 @@ class GlobalStore {
       );
       if (status === 200) {
         this.users = data;
-        console.log(data);
       }
     } catch (error) {
       console.log(error);
@@ -76,7 +74,6 @@ class GlobalStore {
       idpublisher: this.account.id,
     };
 
-    console.log(this.account.id);
     try {
       const { data, status } = await Axios.post(
         "https://freelib-api.herokuapp.com/api/upload",
@@ -93,14 +90,12 @@ class GlobalStore {
 
   @action
   getComments = async (id) => {
-    console.log("get Comments");
     try {
       const { data, status } = await Axios.get(
         `https://freelib-api.herokuapp.com/api/commment?idResource=${id}`
       );
       if (status === 200) {
         this.comments = data;
-        console.log(data);
       }
     } catch (error) {
       console.log(error);
@@ -116,7 +111,6 @@ class GlobalStore {
       );
       if (status === 200) {
         this.comments.push(data);
-        console.log(data);
       }
     } catch (error) {
       console.log(error);

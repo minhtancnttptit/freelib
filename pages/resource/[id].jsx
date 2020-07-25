@@ -41,7 +41,7 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
 @observer
 class XemTaiLieu extends React.Component {
   static getInitialProps(props) {
-    return props;
+    return { id: props.query.id };
   }
 
   state = {
@@ -50,10 +50,20 @@ class XemTaiLieu extends React.Component {
 
   componentDidMount() {
     const { globalStore } = this.context;
-    const { comments, getComments, get } = globalStore;
     const {
-      query: { id },
-    } = this.props;
+      users,
+      getUsers,
+      newEbooks,
+      getNewEbooks,
+      getComments,
+    } = globalStore;
+    const { id } = this.props;
+    if (newEbooks.length < 1) {
+      getNewEbooks();
+    }
+    if (users.length < 1) {
+      getUsers();
+    }
     getComments(id);
   }
 
@@ -88,21 +98,24 @@ class XemTaiLieu extends React.Component {
   };
   render() {
     const { submitting, value } = this.state;
-    const {
-      query: { id },
-    } = this.props;
+    const { id } = this.props;
     const { globalStore } = this.context;
-    const { isAuthen, newEbooks, users, comments } = globalStore;
+    const { isAuthen, newEbooks, users, comments, getComments } = globalStore;
     if (newEbooks.length < 1) {
       return <></>;
     }
+    getComments(id);
+
     const ebook = newEbooks.find((item) => item.id === id);
 
     const { title, cover, category, link, description, idpublisher } = ebook;
     const lines = description.split("\n");
 
     const publisher = users.find((user) => user.id === idpublisher);
-    const { name } = publisher;
+    let name = "";
+    if (publisher) {
+      name = publisher.name;
+    }
 
     let listComment = [];
 
@@ -177,7 +190,9 @@ class XemTaiLieu extends React.Component {
                         fontWeight: 700,
                       }}
                     >
-                      {name}
+                      <Link href="/user/[id]" as={`/user/${idpublisher}`}>
+                        {name}
+                      </Link>
                     </div>
                   </div>
                   <div style={{ display: "flex" }}>
@@ -263,7 +278,8 @@ class XemTaiLieu extends React.Component {
                 </div>
                 <div className={style.tai_lieu_lien_quan}>
                   {newEbooks
-                    .map((ebook) => ebook.category === category)
+                    .filter((ebook) => ebook.category === category)
+                    .splice(0, 7)
                     .map((item) => (
                       <Link href="/resource/[id]" as={`/resource/${item.id}`}>
                         <a
