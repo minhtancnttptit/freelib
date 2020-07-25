@@ -155,7 +155,7 @@ class Header extends React.Component {
                   <Option value="Option2">Sách</Option>
                 </Select> */}
                 <Search
-                  placeholder="Nhập tên tài liệu cần tìm"
+                  placeholder="Nhập tên tài liệu cần tìm..."
                   onSearch={(value) => this.handleSearch(value)}
                   enterButton
                 />
