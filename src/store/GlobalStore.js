@@ -73,6 +73,7 @@ class GlobalStore {
       category,
       description,
       link,
+      idpublisher: this.account.id,
     };
     try {
       const { data, status } = await Axios.post(
