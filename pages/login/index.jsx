@@ -64,7 +64,7 @@ const Login = observer(() => {
         >
           <Input
             prefix={<UserOutlined className="site-form-item-icon" />}
-            placeholder="Username"
+            placeholder="Tài khoản"
           />
         </Form.Item>
         <Form.Item
@@ -79,7 +79,7 @@ const Login = observer(() => {
           <Input
             prefix={<LockOutlined className="site-form-item-icon" />}
             type="password"
-            placeholder="Password"
+            placeholder="Mật khẩu"
           />
         </Form.Item>
         {wrong && (

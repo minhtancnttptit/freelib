@@ -45,7 +45,7 @@ const Upload = () => {
           </Select>
         </Item>
         <Item label="Mô tả" name="description">
-          <Input />
+          <Input.TextArea row={4} />
         </Item>
         <Item label="Đường dẫn" name="link">
           <Input />
