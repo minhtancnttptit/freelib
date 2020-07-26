@@ -218,17 +218,19 @@ class Header extends React.Component {
             </div>
           </div>
         </div>
-        <Row>
-          <Col span={12}></Col>
-          <Col span={7}></Col>
-          <Col span={5}>
-            <div style={{ marginTop: 20 }}>
-              <Link href="/searchUser">
-                <Button>Tìm kiếm người dùng</Button>
-              </Link>
-            </div>
-          </Col>
-        </Row>
+        {isAuthen && (
+          <Row>
+            <Col span={12}></Col>
+            <Col span={7}></Col>
+            <Col span={5}>
+              <div style={{ marginTop: 20 }}>
+                <Link href="/searchUser">
+                  <Button>Tìm kiếm người dùng</Button>
+                </Link>
+              </div>
+            </Col>
+          </Row>
+        )}
       </div>
     );
   }
