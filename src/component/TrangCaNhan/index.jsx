@@ -36,6 +36,7 @@ class TrangCaNhan extends React.Component {
     return (
       <div style={{ marginTop: 40 }}>
         <Row>
+          <Col span={3} />
           <Col span={12}>
             <div style={{ fontSize: 25, fontWeight: 800, color: "#4b4f56" }}>
               THÔNG TIN CÁ NHÂN

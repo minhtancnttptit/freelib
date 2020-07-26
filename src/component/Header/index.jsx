@@ -1,8 +1,9 @@
-import { Button, Dropdown, Input, Menu, message, Select } from "antd";
+import { Button, Dropdown, Input, Menu, message, Select, Row, Col } from "antd";
 import React from "react";
 import Router from "next/router";
 import { observer, MobXProviderContext } from "mobx-react";
 import Link from "next/link";
+import Column from "antd/lib/table/Column";
 // import ImageLogo from '../../assets/logo.png';
 // import ImageEbook from '../../assets/ebook.png';
 // import ImagePen from '../../assets/pen.png';
@@ -59,12 +60,12 @@ class Header extends React.Component {
   };
 
   handleChange = (value) => {
-    this.setState({
-      dataSource:
-        !value || value.indexOf("@") >= 0
-          ? []
-          : [`${value}@gmail.com`, `${value}@163.com`, `${value}@qq.com`],
-    });
+    // this.setState({
+    //   dataSource:
+    //     !value || value.indexOf("@") >= 0
+    //       ? []
+    //       : [`${value}@gmail.com`, `${value}@163.com`, `${value}@qq.com`],
+    // });
   };
 
   handleSearch = (value) => {
@@ -217,7 +218,17 @@ class Header extends React.Component {
             </div>
           </div>
         </div>
-        <div></div>
+        <Row>
+          <Col span={12}></Col>
+          <Col span={7}></Col>
+          <Col span={5}>
+            <div style={{ marginTop: 20 }}>
+              <Link href="/searchUser">
+                <Button>Tìm kiếm người dùng</Button>
+              </Link>
+            </div>
+          </Col>
+        </Row>
       </div>
     );
   }

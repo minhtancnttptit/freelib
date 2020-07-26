@@ -457,3 +457,452 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
+.ant-menu-item {
+  align-items: center;
+}
+#menu {
+  padding: 0 calc((100% - 1200px) / 2);
+  background: #e1e1e1;
+  display: flex;
+}
+.wrap-menu {
+  display: flex;
+  align-items: center;
+  background: #e1e1e1;
+}
+.menu-header {
+  font-family: "Roboto", sans-serif;
+  background: #e1e1e1;
+}
+.menu-logo {
+  font-size: 24px;
+}
+.ant-menu-horizontal > .ant-menu-item:hover,
+.ant-menu-horizontal > .ant-menu-submenu:hover,
+.ant-menu-horizontal > .ant-menu-item-active,
+.ant-menu-horizontal > .ant-menu-submenu-active,
+.ant-menu-horizontal > .ant-menu-item-open,
+.ant-menu-horizontal > .ant-menu-submenu-open,
+.ant-menu-horizontal > .ant-menu-item-selected,
+.ant-menu-horizontal > .ant-menu-submenu-selected {
+  border: none;
+}
+.text {
+  margin-left: 3px;
+}
+.menu-logo .text:hover {
+  border: none;
+}
+.submenu-title-wrapper {
+  font-size: 20px;
+  align-items: center;
+  display: flex;
+}
+.ant-menu-horizontal > .ant-menu-submenu-selected {
+  color: red;
+  border-bottom: 2px solid #1890ff;
+}
+.ant-btn-primary {
+  color: rgb(208, 212, 219);
+  background-color: white;
+  border-color: rgb(208, 212, 219);
+}
+.rs-login-upload {
+  display: flex;
+  align-items: center;
+}
+.logout,
+.login,
+.register,
+.upload {
+  margin-right: 5px;
+  border: none;
+  background-color: #e1e1e1;
+  width: 110px;
+}
+.upload {
+  width: 70px;
+}
+.ant-btn {
+  border-radius: 0px;
+  font-size: 16px;
+}
+.login-form {
+  max-width: 300px;
+}
+.login-form-forgot {
+  float: right;
+}
+.login-form-button {
+  width: 100%;
+}
+.wrap-login {
+  padding: 0 15px;
+  width: 330px;
+  background-color: white;
+  margin: 0 auto;
+}
+.close-login {
+  display: flex;
+  position: relative;
+}
+.button-close {
+  position: absolute;
+  top: 0px;
+  right: -15px;
+  outline: none;
+  border: none;
+}
+.ant-modal-footer {
+  display: none;
+}
+.ant-modal {
+  width: 380px;
+}
+.ant-modal-body {
+  margin: 0 auto;
+}
+.ant-modal-close {
+  top: -7px;
+  right: -7px;
+}
+.ant-modal-content {
+  width: 500px;
+  margin: 0 auto;
+}
+.text-dangki {
+  position: relative;
+  left: 25px;
+  top: 0;
+}
+.register-form {
+  max-width: 400px;
+}
+.content {
+  padding: 0 10%;
+}
+
+.normal {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: normal;
+  letter-spacing: -1px;
+  background: darkslateblue;
+  padding: 0.6em 0;
+  color: white;
+  margin: 0;
+}
+.ant-menu-item {
+  align-items: center;
+}
+#menu {
+  padding: 0 calc((100% - 1200px) / 2);
+  background: #e1e1e1;
+  display: flex;
+  height: 60px;
+}
+.wrap-menu {
+  display: flex;
+  align-items: center;
+  background: #e1e1e1;
+}
+.menu-header {
+  font-family: "Roboto", sans-serif;
+  background: #e1e1e1;
+}
+.menu-logo {
+  font-size: 24px;
+}
+.ant-menu-horizontal > .ant-menu-item:hover,
+.ant-menu-horizontal > .ant-menu-submenu:hover,
+.ant-menu-horizontal > .ant-menu-item-active,
+.ant-menu-horizontal > .ant-menu-submenu-active,
+.ant-menu-horizontal > .ant-menu-item-open,
+.ant-menu-horizontal > .ant-menu-submenu-open,
+.ant-menu-horizontal > .ant-menu-item-selected,
+.ant-menu-horizontal > .ant-menu-submenu-selected {
+  border: none;
+}
+.text {
+  margin-left: 3px;
+}
+.menu-logo .text:hover {
+  border: none;
+}
+.submenu-title-wrapper {
+  font-size: 20px;
+  align-items: center;
+  display: flex;
+}
+.ant-menu-horizontal > .ant-menu-submenu-selected {
+  color: red;
+  border-bottom: 2px solid #1890ff;
+}
+.ant-btn-primary {
+  color: rgb(208, 212, 219);
+  background-color: white;
+  border-color: rgb(208, 212, 219);
+}
+.rs-login-upload {
+  display: flex;
+  align-items: center;
+}
+.login,
+.register,
+.upload {
+  margin-right: 5px;
+  border: none;
+  background-color: #e1e1e1;
+  width: 110px;
+}
+.upload {
+  width: 70px;
+}
+.ant-btn {
+  border-radius: 0px;
+  font-size: 16px;
+}
+.login-form {
+  max-width: 300px;
+}
+.login-form-forgot {
+  float: right;
+}
+.login-form-button {
+  width: 100%;
+}
+.wrap-login {
+  padding: 0 15px;
+  width: 330px;
+  background-color: white;
+  margin: 0 auto;
+}
+.close-login {
+  display: flex;
+  position: relative;
+}
+.button-close {
+  position: absolute;
+  top: 0px;
+  right: -15px;
+  outline: none;
+  border: none;
+}
+.ant-modal-footer {
+  display: none;
+}
+.ant-modal {
+  width: 380px;
+}
+.ant-modal-body {
+  margin: 0 auto;
+}
+.ant-modal-close {
+  top: -7px;
+  right: -7px;
+}
+.ant-modal-content {
+  width: 500px;
+  margin: 0 auto;
+}
+.text-dangki {
+  position: relative;
+  left: 25px;
+  top: 0;
+}
+.register-form {
+  max-width: 400px;
+}
+.content {
+  padding: 0 10%;
+  background: #ffffff;
+  margin-top: 20px;
+}
+.test .slick-slide.slick-active.slick-current {
+  height: 360px;
+}
+.test .ant-carousel .slick-dots li button {
+  background-color: red;
+  height: 5px;
+  opacity: 0.4;
+  transition: all 5s;
+}
+.wrap-tg-nph-theloai {
+  text-align: left;
+  border-top: 2px solid antiquewhite;
+  border-bottom: 2px solid antiquewhite;
+  padding: 30px 45px;
+  font-weight: 800;
+  font-family: "Roboto", Tahoma, Arial, helvetica, sans-serif;
+  font-style: italic;
+  color: #838383;
+  font-size: 15px;
+}
+.tai-lieu-lien-quan {
+  padding: 0px 45px;
+}
+.ten-tailieu {
+  font-size: 23px;
+  line-height: 1.3em;
+  font-family: "Open Sans", arial, helvetica, sans-serif;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 15px;
+}
+.tailieu-lienquan {
+  font-family: "Open Sans", arial, helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 23px;
+  color: #007f7b;
+}
+.mota {
+  font-family: "Roboto", Tahoma, Arial, helvetica, sans-serif;
+  font-size: 15px;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: 600;
+  text-align: left;
+  margin-top: 20px;
+}
+.nguoidang-luottai {
+  text-align: left;
+  padding: 30px 60px;
+  font-weight: 800;
+  font-family: "Roboto", Tahoma, Arial, helvetica, sans-serif;
+  font-style: italic;
+  color: #838383;
+  font-size: 15px;
+  display: flex;
+}
+.content-binhluan {
+  font-family: "Roboto", Tahoma, Arial, helvetica, sans-serif;
+  font-style: italic;
+  color: #838383;
+  font-size: 15px;
+}
+
+.wrap-tg-nph-theloai {
+  text-align: left;
+  border-top: 2px solid antiquewhite;
+  border-bottom: 2px solid antiquewhite;
+  padding: 30px 45px;
+  font-weight: 800;
+  font-family: "Roboto", Tahoma, Arial, helvetica, sans-serif;
+  font-style: italic;
+  color: #838383;
+  font-size: 15px;
+}
+.tai-lieu-lien-quan {
+  padding: 0px 45px;
+}
+.ten-tailieu {
+  font-size: 23px;
+  line-height: 1.3em;
+  font-family: "Open Sans", arial, helvetica, sans-serif;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 15px;
+}
+.tailieu-lienquan {
+  font-family: "Open Sans", arial, helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 23px;
+  color: #007f7b;
+}
+.mota {
+  font-family: "Roboto", Tahoma, Arial, helvetica, sans-serif;
+  font-size: 15px;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: 600;
+  text-align: left;
+  margin-top: 20px;
+}
+.nguoidang-luottai {
+  text-align: left;
+  padding: 30px 60px;
+  font-weight: 800;
+  font-family: "Roboto", Tahoma, Arial, helvetica, sans-serif;
+  font-style: italic;
+  color: #838383;
+  font-size: 15px;
+  display: flex;
+}
+.content-binhluan {
+  font-family: "Roboto", Tahoma, Arial, helvetica, sans-serif;
+  font-style: italic;
+  color: #838383;
+  font-size: 15px;
+}
+.content {
+  padding: 0 10%;
+  background: #ffffff;
+  margin-top: 20px;
+}
+.wrap-banbe {
+  text-align: left;
+  padding: 30px 45px;
+  font-weight: 800;
+  font-family: "Roboto", Tahoma, Arial, helvetica, sans-serif;
+  font-style: italic;
+  color: #838383;
+  font-size: 15px;
+  /* margin-top: 60px; */
+}
+.img-banbe {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.tenbanbe {
+  border: 2px solid #e9ebee;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  margin-bottom: 15px;
+  padding-left: 30px;
+  border-radius: 7px;
+}
+.input-chuathongtin {
+}
+.wrap-thongtin {
+  text-align: left;
+  padding: 30px 45px;
+  font-weight: 800;
+  font-family: "Roboto", Tahoma, Arial, helvetica, sans-serif;
+  font-style: italic;
+  color: #838383;
+  font-size: 15px;
+  /* margin-top: 60px; */
+}
+.img-thongtin {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.trangcanhan {
+  border: 2px solid #e9ebee;
+  padding-bottom: 30px;
+  padding-top: 25px;
+  margin-bottom: 15px;
+  padding-left: 30px;
+  border-radius: 7px;
+}
+.ebook-trangcanhan {
+  border: 2px solid #e9ebee;
+  padding-bottom: 30px;
+  padding-top: 25px;
+  margin-bottom: 15px;
+  padding-left: 30px;
+  border-radius: 7px;
+  margin-top: 60px;
+}
