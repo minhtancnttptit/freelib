@@ -278,7 +278,9 @@ class XemTaiLieu extends React.Component {
                 </div>
                 <div className={style.tai_lieu_lien_quan}>
                   {newEbooks
-                    .filter((ebook) => ebook.category === category)
+                    .filter(
+                      (ebook) => ebook.category === category && ebook.id !== id
+                    )
                     .splice(0, 7)
                     .map((item) => (
                       <Link href="/resource/[id]" as={`/resource/${item.id}`}>
