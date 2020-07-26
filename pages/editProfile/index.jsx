@@ -134,7 +134,7 @@ const FormSizeDemo = observer(() => {
         </Form.Item>
 
         <Form.Item style={{ textAlign: "center" }}>
-          <Button htmlType="submit">Gửi</Button>
+          <Button htmlType="submit">Lưu thay đổi</Button>
         </Form.Item>
       </Form>
     </div>
