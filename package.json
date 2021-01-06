@@ -13,7 +13,7 @@
     "@babel/plugin-proposal-decorators": "^7.10.5",
     "@babel/plugin-transform-react-jsx": "^7.10.4",
     "antd": "^4.4.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bson": "^4.0.4",
     "lodash": "^4.17.19",
     "mobx": "^5.15.4",
